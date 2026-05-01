@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoadSense AI | Industrial Project Profile</title>
+  <meta name="description" content="RoadSense AI is a professional project profile for an edge-AI road intelligence platform that detects defects, geo-tags issues, and prioritizes maintenance for municipalities and infrastructure teams." />
+  <meta name="theme-color" content="#08111c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --bg: #f5f7fb;
+      --bg-2: #eef3f8;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-solid: #ffffff;
+      --surface-2: #eef2f7;
+      --surface-3: #e4ebf3;
+      --text: #0f172a;
+      --muted: #5a6a7f;
+      --border: rgba(15, 23, 42, 0.10);
+      --primary: #0f766e;
+      --primary-2: #155e75;
+      --accent: #d97706;
+      --success: #16a34a;
+      --warn: #ea580c;
+      --shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+      --shadow-strong: 0 22px 60px rgba(15, 23, 42, 0.14);
+      --glow: 0 0 0 1px rgba(255,255,255,0.35) inset;
+    }
+    [data-theme="dark"] {
+      --bg: #07101a;
+      --bg-2: #0b1624;
+      --surface: rgba(15, 27, 42, 0.88);
+      --surface-solid: #0f1b2a;
+      --surface-2: #132334;
+      --surface-3: #182a3f;
+      --text: #e8eef7;
+      --muted: #a3b1c5;
+      --border: rgba(255, 255, 255, 0.09);
+      --primary: #2dd4bf;
+      --primary-2: #38bdf8;
+      --accent: #f59e0b;
+      --success: #4ade80;
+      --warn: #fb923c;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.30);
+      --shadow-strong: 0 26px 70px rgba(0, 0, 0, 0.42);
+      --glow: 0 0 0 1px rgba(255,255,255,0.05) inset;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--primary) 10%, transparent), transparent 30%),
+        radial-gradient(circle at 90% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 26%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, video { max-width: 100%; display: block; }
+
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 34px 0; }
+    .skip-link {
+      position: absolute; left: -999px; top: 12px; z-index: 999;
+      padding: 10px 14px; border-radius: 10px; background: var(--surface-solid);
+      border: 1px solid var(--border);
+    }
+    .skip-link:focus { left: 12px; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: blur(16px);
+      background: color-mix(in oklab, var(--bg) 78%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex; align-items: center; gap: 12px; min-width: 0;
+    }
+    .brand-mark {
+  width: 42px; height: 42px; border-radius: 14px;
+  background: var(--primary);
+  display: grid; place-items: center; box-shadow: var(--shadow);
+}
+    .brand-mark img {
+      width: 100%; height: 100%; object-fit: contain;
+      border-radius: 10px;
+    }
+    .brand-text { min-width: 0; }
+    .brand-name {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
+    }
+    .brand-subtitle { font-size: 12px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+
+    .nav {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .nav a, .nav button {
+      border: 0; background: none; cursor: pointer;
+      min-height: 44px; display: inline-flex; align-items: center;
+      color: var(--muted); font: inherit; font-size: 14px; font-weight: 600;
+      transition: color .18s ease, transform .18s ease;
+    }
+    .nav a:hover, .nav button:hover { color: var(--text); transform: translateY(-1px); }
+    .nav .desktop-only { display: inline-flex; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 46px; padding: 0 18px; border-radius: 14px;
+      border: 1px solid transparent; font-size: 14px; font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow);
+}
+    .btn-secondary {
+      background: var(--surface-solid); color: var(--text); border-color: var(--border);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--muted); border-color: var(--border);
+    }
+
+    .hero { padding: 64px 0 30px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.02fr .98fr; gap: 28px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      background: color-mix(in oklab, var(--surface-solid) 72%, transparent);
+      border: 1px solid var(--border); color: var(--muted);
+      font-size: 13px; font-weight: 700;
+    }
+    h1, h2, h3, h4 {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      letter-spacing: -0.04em; line-height: 1.05; margin: 0;
+    }
+    h1 { font-size: clamp(44px, 6vw, 76px); max-width: 10ch; margin-top: 16px; }
+    h2 { font-size: clamp(30px, 4vw, 48px); }
+    h3 { font-size: 22px; }
+    p { margin: 0; }
+
+    .lead {
+      margin: 18px 0 24px; color: var(--muted); font-size: 18px; max-width: 62ch;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 11px; border-radius: 999px; border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--surface-solid) 85%, transparent);
+      color: var(--muted); font-size: 12px; font-weight: 700;
+    }
+
+    .card, .panel, .stats, .cta, .table-wrap, .metric, .workflow, .quote, .video-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .card { border-radius: 22px; padding: 22px; }
+    .panel { border-radius: 26px; padding: 18px; }
+    .metric { border-radius: 20px; padding: 18px; }
+    .workflow { border-radius: 24px; padding: 20px; }
+    .quote { border-radius: 22px; padding: 20px; }
+    .video-box { border-radius: 26px; padding: 18px; overflow: hidden; }
+
+    .visual-card {
+      background: linear-gradient(180deg, color-mix(in oklab, var(--surface-solid) 88%, transparent), color-mix(in oklab, var(--surface-2) 78%, transparent));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-strong);
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    .visual-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 18px 0;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--primary) 9%, var(--surface-solid));
+      color: var(--text); font-size: 12px; font-weight: 700;
+    }
+    .dashboard-image {
+      padding: 18px;
+    }
+    .dashboard-image img {
+      width: 100%; height: auto; border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      object-fit: cover;
+    }
+
+    .section-head { max-width: 780px; margin-bottom: 22px; }
+    .section-head p { margin-top: 10px; color: var(--muted); }
+    .grid-3, .grid-4, .grid-2 {
+      display: grid; gap: 16px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .icon {
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
+      background: color-mix(in oklab, var(--primary) 10%, var(--surface-solid));
+      color: var(--primary); margin-bottom: 12px;
+    }
+    .icon svg { width: 22px; height: 22px; }
+    .card p, .card li, .metric p, .workflow p, .quote p { color: var(--muted); }
+    .card ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    .card li + li { margin-top: 8px; }
+
+    .steps { display: grid; }
+    .step {
+      display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 16px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .step:last-child { border-bottom: 0; padding-bottom: 0; }
+    .step:first-child { padding-top: 0; }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: white; font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+    .step h3 { font-size: 20px; margin-bottom: 6px; }
+
+    .timeline { display: grid; gap: 14px; }
+    .timeline-item { display: grid; grid-template-columns: 20px 1fr; gap: 14px; align-items: start; }
+    .timeline-dot {
+      width: 14px; height: 14px; margin-top: 6px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 18%, transparent);
+    }
+    .timeline-item strong { display: block; margin-bottom: 4px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag {
+      display: inline-flex; align-items: center; padding: 7px 11px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--surface-solid); color: var(--muted);
+      font-size: 12px; font-weight: 700;
+    }
+
+    .table-wrap { border-radius: 22px; overflow: hidden; }
+    .comparison { width: 100%; border-collapse: collapse; min-width: 800px; }
+    .comparison th, .comparison td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    .comparison th { background: var(--surface-2); font-size: 14px; }
+    .comparison td { color: var(--muted); }
+    .comparison td strong { color: var(--text); }
+
+    .stats { border-radius: 24px; padding: 20px; }
+    .stat { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(30px, 4vw, 46px); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-weight: 700; margin-bottom: 6px; }
+
+    .cta {
+      border-radius: 28px; padding: 28px;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 22px; flex-wrap: wrap;
+      background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 10%, var(--surface-solid)), color-mix(in oklab, var(--primary-2) 10%, var(--surface-solid)));
+    }
+    .cta-copy { max-width: 620px; }
+    .cta-copy p { margin-top: 12px; color: var(--muted); }
+    .form-box {
+      min-width: min(100%, 360px); flex: 1; max-width: 460px;
+      display: grid; gap: 12px;
+    }
+    input, textarea, select {
+      width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 13px 14px;
+      background: var(--surface-solid); color: var(--text); font: inherit; outline: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: color-mix(in oklab, var(--primary) 50%, var(--border)); box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary) 12%, transparent); }
+    textarea { min-height: 120px; resize: vertical; }
+
+    .upload-grid {
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 16px; align-items: start;
+    }
+    .upload-card {
+      display: grid; gap: 14px;
+    }
+    .upload-drop {
+      border: 1.5px dashed var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      background: color-mix(in oklab, var(--surface-solid) 92%, transparent);
+    }
+    .upload-preview {
+      width: 100%;
+      min-height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 12%, var(--surface-solid)), color-mix(in oklab, var(--primary-2) 12%, var(--surface-solid)));
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 18px;
+    }
+    .upload-preview video {
+      width: 100%;
+      height: auto;
+      max-height: 460px;
+      border-radius: 18px;
+      background: #000;
+    }
+
+    footer { padding: 26px 0 54px; border-top: 1px solid var(--border); color: var(--muted); }
+    .footer-grid {
+      display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: flex-start;
+    }
+    .footer-grid strong { color: var(--text); }
+    .small { font-size: 14px; color: var(--muted); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid, .dashboard, .grid-2, .grid-3, .grid-4, .upload-grid { grid-template-columns: 1fr; }
+      .nav .desktop-only { display: none; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 20px, 1180px); }
+      .hero { padding-top: 46px; }
+      .cta { padding: 22px; }
+      .visual-head { padding-left: 14px; padding-right: 14px; }
+      .dashboard-image { padding: 14px; }
+      .nav { gap: 10px; }
+      h1 { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#hero" aria-label="RoadSense AI home">
+        <div class="brand-mark" aria-hidden="true">
+          <img src="logo.jpeg" alt="RoadSense AI Logo" style="width:42px;height:42px;border-radius:12px;">
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">RoadSense AI</div>
+          <div class="brand-subtitle">Industrial edge intelligence for road monitoring</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="desktop-only" href="#problem">Problem</a>
+        <a class="desktop-only" href="#solution">Solution</a>
+        <a class="desktop-only" href="#capabilities">Capabilities</a>
+        <a class="desktop-only" href="#impact">Impact</a>
+        <a class="desktop-only" href="#contact">Contact</a>
+        <button type="button" data-theme-toggle aria-label="Switch theme">Theme</button>
+        <a class="btn btn-primary" href="#contact">Request Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Municipal infrastructure • Edge AI • GPS intelligence • India-first</div>
+          <h1>Turn public fleet vehicles into smart road inspection assets.</h1>
+          <p class="lead">
+            RoadSense AI is a professional road intelligence platform that detects potholes and surface defects in real time,
+            geo-tags every issue, scores severity, and helps public works teams prioritize maintenance with confidence.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:thanveersuhail3115@gmail.com">Book a pilot discussion</a>
+            <a class="btn btn-secondary" href="#solution">Explore workflow</a>
+            <a class="btn btn-ghost" href="#capabilities">View capabilities</a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Edge inference</span>
+            <span class="pill">Geo-tagged alerts</span>
+            <span class="pill">Priority dashboards</span>
+            <span class="pill">Fleet-friendly deployment</span>
+          </div>
+        </div>
+
+        <div class="visual-card" aria-label="RoadSense AI logo and project snapshot">
+          <div class="visual-head">
+            <div>
+              <div class="badge">Project identity</div>
+              <h3 style="margin-top:10px;font-size:28px;">RoadSense AI</h3>
+            </div>
+            <div class="badge">Intelligent mobility safety</div>
+          </div>
+          <div class="dashboard-image">
+           <img src="dashboard.jpeg" alt="Project Output">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-head">
+          <h2>The operational problem</h2>
+          <p>
+            Road maintenance teams often rely on manual inspections, delayed complaint logs, and inconsistent field reporting.
+            That creates slow response cycles, poor prioritization, and rising repair costs.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v8"/><path d="M12 22V14"/><path d="M5 5l4 4"/><path d="M19 5l-4 4"/><path d="M5 19l4-4"/><path d="M19 19l-4-4"/></svg></div>
+            <h3>Delayed field visibility</h3>
+            <p>Authorities do not get continuous road-condition data, so defects are often found after they become expensive to fix.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16"/><path d="M12 4v16"/></svg></div>
+            <h3>High inspection overhead</h3>
+            <p>Dedicated survey teams and manual audits increase cost, yet still leave coverage gaps and reporting delays.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 16H3L12 2z"/><path d="M12 9v4"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg></div>
+            <h3>Unsafe road conditions</h3>
+            <p>Potholes, cracks, and surface failures increase accident risk, vehicle damage, and public dissatisfaction.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solution">
+      <div class="container">
+        <div class="section-head">
+          <h2>How RoadSense AI works</h2>
+          <p>
+            The platform converts everyday municipal vehicles into mobile inspection units.
+            Edge AI analyzes road footage on-device, tags defects with GPS, scores severity, and sends structured insights to a centralized dashboard.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card steps">
+            <div class="step"><div class="step-num">1</div><div><h3>Capture while driving</h3><p>Dashcams or mounted cameras collect road visuals during normal fleet movement across the city.</p></div></div>
+            <div class="step"><div class="step-num">2</div><div><h3>Detect on the edge</h3><p>On-device inference identifies potholes, cracks, and anomalies with low latency and reduced cloud dependency.</p></div></div>
+            <div class="step"><div class="step-num">3</div><div><h3>Map and prioritize</h3><p>Each issue is geo-tagged, severity-scored, and sorted so maintenance teams know what to fix first.</p></div></div>
+            <div class="step"><div class="step-num">4</div><div><h3>Act faster</h3><p>Dashboards help agencies assign crews, track hotspots, and improve the speed and quality of repair response.</p></div></div>
+          </div>
+
+          <div class="card">
+            <h3>Built for public infrastructure teams</h3>
+            <p style="margin-top:10px; color:var(--muted);">
+              RoadSense AI is designed for municipalities, state PWD teams, contractors, and road maintenance operators that need a practical,
+              scalable, and cost-aware inspection system.
+            </p>
+            <ul>
+              <li>Works with existing fleet vehicles to reduce deployment cost.</li>
+              <li>Supports recurring road monitoring, not just one-time surveys.</li>
+              <li>Improves accountability through structured defect records.</li>
+              <li>Aligns with smart-city and infrastructure modernization goals.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Municipal bodies</span>
+              <span class="tag">State PWD</span>
+              <span class="tag">Contractors</span>
+              <span class="tag">Smart cities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <h2>Core capabilities</h2>
+          <p>The platform is structured to detect, classify, prioritize, and operationalize road-condition intelligence in one workflow.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+            <h3>GPS tagging</h3>
+            <p>Each defect is tied to its exact location for faster dispatch and stronger accountability.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16"/><path d="M7 16l3-5 3 3 4-7"/></svg></div>
+            <h3>Edge AI detection</h3>
+            <p>Real-time inference reduces delay and supports field operations even in limited connectivity zones.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M8 19V9"/><path d="M12 19V12"/><path d="M16 19V8"/><path d="M20 19V11"/></svg></div>
+            <h3>Severity scoring</h3>
+            <p>Urgent defects rise to the top so crews can focus on the roads that matter most.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></div>
+            <h3>Repair dashboards</h3>
+            <p>Track road-quality trends, hotspots, and maintenance progress from one control view.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+  <div class="container">
+    <div class="section-head">
+      <h2>Project intro video</h2>
+      <p>
+        A short overview of RoadSense AI, including the problem, the workflow, and the intended deployment model for municipal infrastructure teams.
+      </p>
+    </div>
+
+    <div class="video-box" style="max-width: 980px; margin: 0 auto;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+        <div>
+          <div class="badge">Project walkthrough</div>
+          <h3 style="margin-top:10px;">RoadSense AI overview</h3>
+        </div>
+        <a class="btn btn-secondary" href="video.mp4" target="_blank" rel="noopener noreferrer">Open video in new tab</a>
+      </div>
+
+      <div class="upload-preview" style="padding:0; background:#000; min-height:auto;">
+        <video controls preload="metadata" style="width:100%; height:auto; display:block; border-radius:20px;">
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <span class="pill">Demo overview</span>
+        <span class="pill">Problem to solution</span>
+        <span class="pill">Field deployment concept</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-head">
+          <h2>Operational workflow</h2>
+          <p>A clear workflow helps teams move from data capture to repair execution without extra process overhead.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="workflow">
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Capture</strong><div class="subtle">Vehicles collect footage during normal service routes.</div></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Analyze</strong><div class="subtle">Edge processing detects road defects in real time.</div></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Classify</strong><div class="subtle">Defects are categorized and assigned a severity level.</div></div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Act</strong><div class="subtle">Teams use the dashboard to assign priority and track repair response.</div></div></div>
+            </div>
+          </div>
+
+          <div class="workflow">
+            <h3>Deployment fit</h3>
+            <p style="margin-top:10px; color:var(--muted);">
+              RoadSense AI is suited for recurring monitoring across city roads, arterial routes, and high-traffic corridors.
+              It complements existing maintenance planning with fresh field-level evidence.
+            </p>
+            <div class="pill-row" style="margin-top:16px;">
+              <span class="pill">Daily fleet routes</span>
+              <span class="pill">Ward-level analysis</span>
+              <span class="pill">Maintenance queue</span>
+              <span class="pill">Hotspot tracking</span>
+            </div>
+            <div class="quote" style="margin-top:16px;">
+              <p style="font-style:italic;">
+                “A practical system should do more than detect defects — it should help teams decide what to repair, where to send crews, and how to measure progress.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="comparison">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why this approach stands out</h2>
+          <p>
+            Many alternatives are either too generic, too expensive, or too dependent on manual follow-up. RoadSense AI focuses on deployment practicality and maintenance value.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="comparison">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>RoadSense AI</th>
+                <th>Traditional surveys</th>
+                <th>Generic complaint apps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Detection speed</strong></td><td>Real-time on-device</td><td>Periodic and delayed</td><td>Complaint-driven only</td></tr>
+              <tr><td><strong>Data quality</strong></td><td>Geo-tagged and structured</td><td>Manual and inconsistent</td><td>Citizen-reported, variable</td></tr>
+              <tr><td><strong>Deployment cost</strong></td><td>Uses existing vehicles</td><td>High specialized cost</td><td>Low, but low precision</td></tr>
+              <tr><td><strong>Actionability</strong></td><td>Severity + priority output</td><td>Requires follow-up analysis</td><td>No structured prioritization</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Measured impact</h2>
+          <p>This project profile is framed around outcomes that municipal stakeholders understand: lower inspection cost, faster action, and safer roads.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="stats">
+            <div class="stat">24/7</div>
+            <div class="stat-label">Continuous data opportunity</div>
+            <p>Fleet vehicles can gather road intelligence during normal operations without dedicated survey runs.</p>
+          </div>
+          <div class="stats">
+            <div class="stat">1 dashboard</div>
+            <div class="stat-label">Unified decision view</div>
+            <p>Inspect defects, hotspots, severity patterns, and maintenance priority from a single place.</p>
+          </div>
+          <div class="stats">
+            <div class="stat">Faster</div>
+            <div class="stat-label">Repair action</div>
+            <p>Location data and severity ranking reduce time spent deciding where to send crews first.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta">
+          <div class="cta-copy">
+            <div class="eyebrow">Pilot ready • Municipal demo • Partnership enquiries</div>
+            <h2 style="margin-top:14px;">Bring AI-powered road monitoring into operational use.</h2>
+            <p>
+              RoadSense AI is positioned for municipal bodies, PWD agencies, contractors, and infrastructure partners that need a practical,
+              field-ready road intelligence layer.
+            </p>
+            <div class="pill-row" style="margin-top:18px;">
+              <span class="pill">Pilot deployment</span>
+              <span class="pill">Product demo</span>
+              <span class="pill">Integration discussion</span>
+              <span class="pill">Partnership</span>
+            </div>
+          </div>
+
+          <div class="card form-box" style="margin:0; max-width: 470px;">
+            <h3>Contact / demo request</h3>
+            <form onsubmit="event.preventDefault(); document.getElementById('msg').textContent='Thanks — replace this with your Google Form, CRM, or email workflow.';">
+              <div class="form-box" style="max-width:none;">
+                <input type="text" placeholder="Your name" required>
+                <input type="email" placeholder="Work email" required>
+                <input type="text" placeholder="Organization / City" required>
+                <textarea placeholder="Tell us about your pilot, deployment, or partnership requirement."></textarea>
+                <button class="btn btn-primary" type="submit">Submit enquiry</button>
+                <div id="msg" class="small"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div style="max-width: 560px;">
+        <div class="brand" style="margin-bottom:10px;">
+          <div class="brand-mark" style="width:40px;height:40px;">
+            <img src="logo.jpeg" alt="RoadSense AI Logo">
+          </div>
+          <div>
+            <div class="brand-name">RoadSense AI</div>
+            <div class="brand-subtitle">Intelligent mobility safety</div>
+          </div>
+        </div>
+        <strong>RoadSense AI</strong>
+        <div style="margin-top:8px;">
+          Edge AI for road defect detection, geo-tagging, priority scoring, and maintenance intelligence.
+        </div>
+      </div>
+      <div>
+        <p>Email: <a href="mailto:thanveersuhail3115@gmail.com">thanveersuhail3115@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/thanveer-suhail-029635283" target="_blank" rel="noopener noreferrer">thanveer-suhail-029635283</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  const root = document.documentElement;
+  const toggle = document.querySelector('[data-theme-toggle]');
+
+  let theme = root.getAttribute('data-theme') ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  root.setAttribute('data-theme', theme);
+
+  function updateToggleLabel() {
+    if (!toggle) return;
+    toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+  }
+
+  updateToggleLabel();
+
+  toggle?.addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', theme);
+    updateToggleLabel();
+  });
+</script>
+</body>
+</html>"}]}
