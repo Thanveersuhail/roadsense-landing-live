@@ -517,7 +517,7 @@
       </div>
     </section>
 
-    <section class="section" id="video">
+   <section class="section" id="video">
   <div class="container">
     <div class="section-head">
       <h2>Project intro video</h2>
@@ -532,14 +532,20 @@
           <div class="badge">Project walkthrough</div>
           <h3 style="margin-top:10px;">RoadSense AI overview</h3>
         </div>
-        <a class="btn btn-secondary" href="video.mp4" target="_blank" rel="noopener noreferrer">Open video in new tab</a>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1fh2YyDUvpijLb8CsbRQsOnAjYPLI9d0L/view" target="_blank" rel="noopener noreferrer">Open video in Google Drive</a>
       </div>
 
-      <div class="upload-preview" style="padding:0; background:#000; min-height:auto;">
-        <video controls preload="metadata" style="width:100%; height:auto; display:block; border-radius:20px;">
-          <source src="video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div class="upload-preview" style="padding:0; background:#000; min-height:auto; overflow:hidden;">
+        <div style="position:relative; width:100%; padding-top:56.25%;">
+          <iframe
+            src="https://drive.google.com/file/d/1fh2YyDUvpijLb8CsbRQsOnAjYPLI9d0L/preview"
+            title="RoadSense AI overview video"
+            loading="lazy"
+            allow="autoplay"
+            allowfullscreen
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:20px;">
+          </iframe>
+        </div>
       </div>
 
       <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
